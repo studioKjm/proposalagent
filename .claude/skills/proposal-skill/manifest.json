@@ -1,0 +1,68 @@
+{
+  "name": "proposal-skill",
+  "version": "1.0.0",
+  "description": "크몽/위시켓 견적서 생성 스킬",
+  "author": "studioKjm",
+  "triggers": [
+    "/proposal",
+    "견적서 생성",
+    "견적서 작성"
+  ],
+  "inputs": {
+    "projectInfo": {
+      "type": "object",
+      "required": true,
+      "description": "프로젝트 기본 정보"
+    },
+    "requirements": {
+      "type": "object",
+      "required": false,
+      "description": "요구사항 정보"
+    },
+    "estimate": {
+      "type": "object",
+      "required": true,
+      "description": "비용 산정 정보"
+    },
+    "supplier": {
+      "type": "object",
+      "required": false,
+      "description": "공급자 정보 (기본값 사용 가능)"
+    },
+    "options": {
+      "type": "object",
+      "required": false,
+      "description": "생성 옵션"
+    }
+  },
+  "outputs": {
+    "html": {
+      "type": "file",
+      "path": "output/proposal-{{projectName}}-{{date}}.html",
+      "description": "HTML 견적서 파일"
+    },
+    "data": {
+      "type": "json",
+      "description": "견적서 데이터 (PDF 변환용)"
+    }
+  },
+  "dependencies": {
+    "templates": [
+      "src/templates/proposal-template.html"
+    ],
+    "data": [
+      "src/data/sw-wage-2024.json",
+      "src/data/tax-rates.json"
+    ],
+    "utils": [
+      "src/utils/calculator.js",
+      "src/utils/validator.js"
+    ]
+  },
+  "agents": [
+    "analyzer-agent",
+    "estimator-agent",
+    "writer-agent"
+  ],
+  "nextSkill": "pdf-skill"
+}

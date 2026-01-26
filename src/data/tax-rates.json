@@ -1,0 +1,68 @@
+{
+  "source": "국세청",
+  "lastUpdated": "2024-01-01",
+  "note": "프리랜서 관련 세금 정보",
+  "vat": {
+    "rate": 0.10,
+    "name": "부가가치세",
+    "description": "공급가액의 10%",
+    "required": true,
+    "note": "일반과세자 기준, 간이과세자는 별도 계산"
+  },
+  "withholdingTax": {
+    "individual": {
+      "rate": 0.033,
+      "name": "원천세 (개인)",
+      "description": "소득세 3% + 지방소득세 0.3%",
+      "note": "사업소득에 대한 원천징수"
+    },
+    "corporate": {
+      "rate": 0.088,
+      "name": "원천세 (법인)",
+      "description": "8.8%",
+      "note": "법인사업자 기준"
+    }
+  },
+  "paymentTerms": {
+    "standard": {
+      "name": "표준",
+      "description": "계약금 30% / 중도금 40% / 잔금 30%",
+      "schedule": [
+        { "name": "계약금", "percentage": 30, "timing": "계약 체결 시" },
+        { "name": "중도금", "percentage": 40, "timing": "중간 산출물 확인 후" },
+        { "name": "잔금", "percentage": 30, "timing": "최종 납품 완료 후" }
+      ]
+    },
+    "twoPhase": {
+      "name": "2단계",
+      "description": "선금 50% / 잔금 50%",
+      "schedule": [
+        { "name": "선금", "percentage": 50, "timing": "계약 체결 시" },
+        { "name": "잔금", "percentage": 50, "timing": "최종 납품 완료 후" }
+      ]
+    },
+    "milestone": {
+      "name": "마일스톤",
+      "description": "단계별 완료 시 지급",
+      "schedule": [
+        { "name": "착수금", "percentage": 20, "timing": "프로젝트 착수 시" },
+        { "name": "1차", "percentage": 30, "timing": "기획/설계 완료" },
+        { "name": "2차", "percentage": 30, "timing": "개발 완료" },
+        { "name": "잔금", "percentage": 20, "timing": "테스트/배포 완료" }
+      ]
+    },
+    "postPayment": {
+      "name": "후불",
+      "description": "완료 후 100% 지급",
+      "schedule": [
+        { "name": "대금", "percentage": 100, "timing": "최종 납품 완료 후" }
+      ],
+      "note": "신뢰 관계가 있는 경우에만 권장"
+    }
+  },
+  "validity": {
+    "default": 30,
+    "unit": "days",
+    "description": "견적서 유효기간"
+  }
+}

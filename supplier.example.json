@@ -1,0 +1,14 @@
+{
+  "name": "회사명 또는 개인명",
+  "ceo": "대표자명",
+  "bizNo": "123-45-67890",
+  "phone": "010-1234-5678",
+  "email": "contact@example.com",
+  "address": "서울시 강남구 테헤란로 123",
+  "bank": {
+    "name": "신한은행",
+    "account": "110-123-456789",
+    "holder": "예금주명"
+  },
+  "note": "이 파일을 supplier.json으로 복사하여 본인 정보로 수정하세요."
+}

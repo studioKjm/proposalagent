@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Output files
+output/*.html
+output/*.pdf
+output/*.json
+
+# Keep output directory
+!output/.gitkeep
+
+# Environment
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test coverage
+coverage/
+
+# Build
+dist/
+build/
+
+# Temporary
+tmp/
+temp/

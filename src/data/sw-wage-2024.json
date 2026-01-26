@@ -1,0 +1,132 @@
+{
+  "source": "한국소프트웨어산업협회",
+  "year": 2024,
+  "lastUpdated": "2024-01-01",
+  "note": "SW기술자 평균임금 (월 기준, 원)",
+  "grades": {
+    "special": {
+      "name": "특급기술자",
+      "description": "15년 이상 경력, 기술사/박사",
+      "monthlyWage": 14234567,
+      "dailyWage": 678789,
+      "roles": ["CTO", "Technical Director", "수석 아키텍트"]
+    },
+    "advanced": {
+      "name": "고급기술자",
+      "description": "10년 이상 경력, 기사/석사",
+      "monthlyWage": 10876543,
+      "dailyWage": 518406,
+      "roles": ["PM", "Lead Developer", "시니어 아키텍트", "Tech Lead"]
+    },
+    "intermediate": {
+      "name": "중급기술자",
+      "description": "5년 이상 경력",
+      "monthlyWage": 7654321,
+      "dailyWage": 364491,
+      "roles": ["시니어 개발자", "시니어 디자이너", "기획자"]
+    },
+    "junior": {
+      "name": "초급기술자",
+      "description": "5년 미만 경력",
+      "monthlyWage": 5432109,
+      "dailyWage": 258671,
+      "roles": ["주니어 개발자", "주니어 디자이너", "QA"]
+    }
+  },
+  "roles": {
+    "pm": {
+      "name": "프로젝트 매니저",
+      "defaultGrade": "advanced",
+      "description": "프로젝트 총괄 관리, 일정/리스크 관리"
+    },
+    "planner": {
+      "name": "기획자",
+      "defaultGrade": "intermediate",
+      "description": "요구사항 분석, 기능 정의, 화면 설계"
+    },
+    "designer": {
+      "name": "UI/UX 디자이너",
+      "defaultGrade": "intermediate",
+      "description": "UI 디자인, UX 설계, 디자인 시스템"
+    },
+    "frontend": {
+      "name": "프론트엔드 개발자",
+      "defaultGrade": "intermediate",
+      "description": "웹/앱 프론트엔드 개발"
+    },
+    "backend": {
+      "name": "백엔드 개발자",
+      "defaultGrade": "intermediate",
+      "description": "서버, API, 데이터베이스 개발"
+    },
+    "fullstack": {
+      "name": "풀스택 개발자",
+      "defaultGrade": "intermediate",
+      "description": "프론트엔드 + 백엔드 통합 개발"
+    },
+    "mobile": {
+      "name": "모바일 개발자",
+      "defaultGrade": "intermediate",
+      "description": "iOS/Android/크로스플랫폼 앱 개발"
+    },
+    "devops": {
+      "name": "DevOps 엔지니어",
+      "defaultGrade": "intermediate",
+      "description": "CI/CD, 클라우드 인프라, 배포 자동화"
+    },
+    "qa": {
+      "name": "QA 엔지니어",
+      "defaultGrade": "junior",
+      "description": "테스트 계획, 수행, 품질 관리"
+    },
+    "publisher": {
+      "name": "퍼블리셔",
+      "defaultGrade": "junior",
+      "description": "HTML/CSS 마크업, 웹 퍼블리싱"
+    }
+  },
+  "projectTypes": {
+    "web": {
+      "name": "웹 개발",
+      "baseRoles": ["pm", "planner", "designer", "frontend", "backend", "qa"],
+      "complexity": {
+        "simple": { "multiplier": 0.7, "description": "단순 웹사이트, 랜딩페이지" },
+        "medium": { "multiplier": 1.0, "description": "일반 웹서비스, 관리자 페이지" },
+        "complex": { "multiplier": 1.5, "description": "대규모 플랫폼, 복잡한 기능" }
+      }
+    },
+    "mobile": {
+      "name": "모바일 앱",
+      "baseRoles": ["pm", "planner", "designer", "mobile", "backend", "qa"],
+      "complexity": {
+        "simple": { "multiplier": 0.8, "description": "단순 앱, 단일 플랫폼" },
+        "medium": { "multiplier": 1.0, "description": "일반 앱, 크로스플랫폼" },
+        "complex": { "multiplier": 1.5, "description": "복잡한 앱, 고성능 요구" }
+      }
+    },
+    "fullstack": {
+      "name": "풀스택 개발",
+      "baseRoles": ["pm", "planner", "designer", "fullstack", "qa"],
+      "complexity": {
+        "simple": { "multiplier": 0.8, "description": "소규모 프로젝트" },
+        "medium": { "multiplier": 1.0, "description": "중규모 프로젝트" },
+        "complex": { "multiplier": 1.4, "description": "대규모 프로젝트" }
+      }
+    },
+    "maintenance": {
+      "name": "유지보수",
+      "baseRoles": ["fullstack", "qa"],
+      "complexity": {
+        "simple": { "multiplier": 0.5, "description": "단순 수정, 버그 픽스" },
+        "medium": { "multiplier": 0.7, "description": "기능 추가, 리팩토링" },
+        "complex": { "multiplier": 1.0, "description": "대규모 개선, 마이그레이션" }
+      }
+    }
+  },
+  "discountRates": {
+    "standard": { "rate": 0.5, "description": "표준 할인율 (50%)" },
+    "competitive": { "rate": 0.6, "description": "경쟁력 있는 할인율 (60%)" },
+    "premium": { "rate": 0.3, "description": "프리미엄 (30% 할인)" },
+    "budget": { "rate": 0.7, "description": "예산 친화적 (70% 할인)" }
+  }
+}

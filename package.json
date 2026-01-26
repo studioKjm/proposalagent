@@ -1,0 +1,32 @@
+{
+  "name": "proposalagent",
+  "version": "1.0.0",
+  "description": "AI-powered proposal/quotation generator for freelance platforms (Kmong, Wishket)",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "generate": "node src/index.js",
+    "pdf": "node src/utils/html2pdf.js",
+    "validate": "node src/utils/validator.js",
+    "test": "node --test src/**/*.test.js"
+  },
+  "keywords": [
+    "proposal",
+    "quotation",
+    "kmong",
+    "wishket",
+    "freelance",
+    "ai-agent",
+    "claude-code"
+  ],
+  "author": "studioKjm",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.8",
+    "playwright": "^1.40.0",
+    "puppeteer": "^24.36.0"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "name": "pdf-skill",
+  "version": "1.0.0",
+  "description": "HTML을 PDF로 변환하는 스킬",
+  "author": "studioKjm",
+  "triggers": [
+    "PDF 변환",
+    "pdf 생성"
+  ],
+  "inputs": {
+    "htmlPath": {
+      "type": "string",
+      "required": true,
+      "description": "변환할 HTML 파일 경로"
+    },
+    "outputPath": {
+      "type": "string",
+      "required": false,
+      "description": "출력 PDF 파일 경로 (기본: HTML 파일과 동일 위치)"
+    },
+    "options": {
+      "type": "object",
+      "required": false,
+      "description": "PDF 변환 옵션",
+      "properties": {
+        "format": {
+          "type": "string",
+          "default": "A4"
+        },
+        "margin": {
+          "type": "object",
+          "default": {
+            "top": "15mm",
+            "right": "15mm",
+            "bottom": "15mm",
+            "left": "15mm"
+          }
+        },
+        "printBackground": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    }
+  },
+  "outputs": {
+    "pdf": {
+      "type": "file",
+      "description": "생성된 PDF 파일"
+    }
+  },
+  "dependencies": {
+    "npm": ["playwright"]
+  },
+  "script": "src/utils/html2pdf.js"
+}

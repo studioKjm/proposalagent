@@ -1,0 +1,166 @@
+<!-- IT 개발 프로젝트 견적서 확장 템플릿 -->
+<!-- 기본 템플릿(proposal-template.html)을 상속하며, IT 특화 섹션 추가 -->
+
+<!-- 추가 섹션: 기술 스택 -->
+<section class="section tech-stack-section">
+  <h2 class="section-title">
+    <span class="section-number">6</span>
+    기술 스택
+  </h2>
+  <div class="tech-grid">
+    {{#if techStack.frontend}}
+    <div class="tech-category">
+      <h4>Frontend</h4>
+      <div class="tech-tags">
+        {{#each techStack.frontend}}
+        <span class="tech-tag frontend">{{this}}</span>
+        {{/each}}
+      </div>
+    </div>
+    {{/if}}
+
+    {{#if techStack.backend}}
+    <div class="tech-category">
+      <h4>Backend</h4>
+      <div class="tech-tags">
+        {{#each techStack.backend}}
+        <span class="tech-tag backend">{{this}}</span>
+        {{/each}}
+      </div>
+    </div>
+    {{/if}}
+
+    {{#if techStack.database}}
+    <div class="tech-category">
+      <h4>Database</h4>
+      <div class="tech-tags">
+        {{#each techStack.database}}
+        <span class="tech-tag database">{{this}}</span>
+        {{/each}}
+      </div>
+    </div>
+    {{/if}}
+
+    {{#if techStack.infrastructure}}
+    <div class="tech-category">
+      <h4>Infrastructure</h4>
+      <div class="tech-tags">
+        {{#each techStack.infrastructure}}
+        <span class="tech-tag infra">{{this}}</span>
+        {{/each}}
+      </div>
+    </div>
+    {{/if}}
+  </div>
+</section>
+
+<!-- 추가 섹션: 투입 인력 -->
+<section class="section team-section">
+  <h2 class="section-title">
+    <span class="section-number">7</span>
+    투입 인력 구성
+  </h2>
+  <table class="team-table">
+    <thead>
+      <tr>
+        <th>역할</th>
+        <th>등급</th>
+        <th>투입률</th>
+        <th>투입기간</th>
+        <th>M/M</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each team}}
+      <tr>
+        <td>{{this.roleName}}</td>
+        <td>{{this.gradeName}}</td>
+        <td>{{this.ratioPercent}}</td>
+        <td>{{this.months}}개월</td>
+        <td>{{this.manMonth}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4" style="text-align: right; font-weight: 600;">총 M/M</td>
+        <td style="font-weight: 600;">{{totalManMonth}}</td>
+      </tr>
+    </tfoot>
+  </table>
+</section>
+
+<!-- 추가 CSS -->
+<style>
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .tech-category h4 {
+    font-size: 10pt;
+    color: #6b7280;
+    margin-bottom: 8px;
+  }
+
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tech-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 9pt;
+    font-weight: 500;
+  }
+
+  .tech-tag.frontend {
+    background: #dbeafe;
+    color: #1e40af;
+  }
+
+  .tech-tag.backend {
+    background: #dcfce7;
+    color: #166534;
+  }
+
+  .tech-tag.database {
+    background: #fef3c7;
+    color: #92400e;
+  }
+
+  .tech-tag.infra {
+    background: #f3e8ff;
+    color: #7c3aed;
+  }
+
+  .team-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10pt;
+  }
+
+  .team-table th,
+  .team-table td {
+    padding: 10px;
+    border: 1px solid #e5e7eb;
+    text-align: center;
+  }
+
+  .team-table th {
+    background: #f1f5f9;
+    font-weight: 600;
+  }
+
+  .team-table tbody tr:hover {
+    background: #f8fafc;
+  }
+
+  .team-table tfoot {
+    background: #f8fafc;
+  }
+</style>
