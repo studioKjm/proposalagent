@@ -2,12 +2,7 @@
 node_modules/
 
 # Output files
-output/*.html
-output/*.pdf
-output/*.json
-
-# Keep output directory
-!output/.gitkeep
+output/
 
 # Environment
 .env
