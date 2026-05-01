@@ -4,6 +4,22 @@ node_modules/
 # Output files
 output/
 
+# Client-specific generators (sensitive: client names, pricing, project specifics)
+generate-*.js
+
+# Client-specific docs (contracts, analyses, checklists, defense guides)
+*-contract-*.md
+artwork-outsourcing-*.md
+kmong-*-analysis.md
+크몽_*.md
+20260415_견적서_면책조항_방어가이드.md
+
+# Personal assets (signature, seal images)
+assets/
+
+# Client reference materials (RFPs, client docs)
+reference/
+
 # Environment
 .env
 .env.local
