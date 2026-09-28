@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>견적서 예시 - 외부거래 직접계약</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+@page { size:A4; margin:0; }
+body {
+  font-family:'Pretendard','Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:10.5pt; line-height:1.65; color:#1e293b; background:#fff;
+}
+.page { width:210mm; min-height:297mm; padding:16mm 18mm; position:relative; }
+.page + .page { page-break-before:always; }
+
+/* Header */
+.doc-header { display:flex; justify-content:space-between; align-items:flex-end;
+  border-bottom:3px solid #1e293b; padding-bottom:14px; margin-bottom:22px; }
+.brand { font-size:11pt; font-weight:700; color:#1e293b; letter-spacing:.5px; }
+.brand-sub { font-size:8.5pt; color:#64748b; margin-top:2px; }
+.doc-title { font-size:24pt; font-weight:800; color:#1e293b; letter-spacing:6px; text-align:right; }
+.doc-subtitle { font-size:8.5pt; color:#94a3b8; text-align:right; letter-spacing:2px; margin-top:2px; }
+
+/* Meta table */
+.meta-table { width:100%; border-collapse:collapse; margin-bottom:22px; font-size:9.5pt; }
+.meta-table th, .meta-table td { border:1px solid #e2e8f0; padding:8px 12px; text-align:left; }
+.meta-table th { background:#f8fafc; color:#475569; font-weight:600; width:110px; }
+
+/* Price banner */
+.price-banner { background:#1e293b; color:#fff; border-radius:10px; padding:22px 26px;
+  display:flex; justify-content:space-between; align-items:center; margin-bottom:26px; }
+.price-banner .label { font-size:9.5pt; color:#94a3b8; letter-spacing:1px; }
+.price-banner .amount { font-size:22pt; font-weight:800; margin-top:4px; }
+.price-banner .accent { color:#0f766e; }
+.price-banner .period { text-align:right; font-size:9.5pt; color:#cbd5e1; }
+.price-banner .period b { color:#fff; font-size:12pt; display:block; margin-top:2px; }
+
+/* Section */
+.section { margin-bottom:24px; }
+.section-head { font-size:12.5pt; font-weight:700; color:#1e293b; margin-bottom:12px;
+  padding-bottom:6px; border-bottom:2px solid #0f766e; display:flex; align-items:baseline; gap:8px; }
+.section-head .sh-num { color:#0f766e; font-size:11pt; }
+.section-lead { font-size:9.5pt; color:#64748b; margin-bottom:12px; }
+
+/* Scope cards */
+.scope-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.scope-card { border:1px solid #e2e8f0; border-radius:8px; padding:12px 14px; background:#f8fafc; }
+.scope-card .sc-no { font-size:8pt; font-weight:700; color:#0f766e; letter-spacing:1px; }
+.scope-card .sc-title { font-size:10pt; font-weight:700; color:#1e293b; margin:4px 0 6px; }
+.scope-card .sc-desc { font-size:8.8pt; color:#64748b; }
+
+/* Timeline */
+.timeline-table { width:100%; border-collapse:collapse; font-size:9.3pt; }
+.timeline-table th, .timeline-table td { border:1px solid #e2e8f0; padding:8px 10px; text-align:left; }
+.timeline-table th { background:#1e293b; color:#fff; font-weight:600; }
+.timeline-table td.week { font-weight:700; color:#0f766e; white-space:nowrap; }
+
+/* Payment flow */
+.payment-flow { display:flex; align-items:center; gap:4px; margin-bottom:16px; flex-wrap:wrap; }
+.pf-step { flex:1; min-width:80px; border:1px solid #e2e8f0; border-radius:8px; padding:8px 10px;
+  font-size:8.3pt; text-align:center; color:#334155; background:#f8fafc; }
+.pf-arrow { color:#94a3b8; font-size:11pt; }
+.payment-split { display:flex; gap:10px; }
+.ps-card { flex:1; border:1px solid #e2e8f0; border-radius:8px; padding:14px; text-align:center; }
+.ps-card .ps-pct { font-size:9pt; color:#0f766e; font-weight:700; }
+.ps-card .ps-label { font-size:9pt; color:#475569; margin:4px 0; }
+.ps-card .ps-amt { font-size:13pt; font-weight:800; color:#1e293b; }
+.ps-note { font-size:8.3pt; color:#94a3b8; margin-top:10px; }
+
+/* VAT breakdown (direct contract only) */
+.vat-table { width:100%; border-collapse:collapse; font-size:9.5pt; margin-bottom:8px; }
+.vat-table th, .vat-table td { border:1px solid #e2e8f0; padding:9px 12px; }
+.vat-table th { background:#f8fafc; color:#475569; text-align:left; width:35%; }
+.vat-table td.num { text-align:right; font-variant-numeric:tabular-nums; }
+.vat-table tr.total th, .vat-table tr.total td { background:#1e293b; color:#fff; font-weight:700; }
+
+/* Contract box (light scope limitation) */
+.contract-box { border:1px solid #e2e8f0; border-radius:8px; padding:14px 16px; font-size:8.8pt;
+  color:#475569; background:#f8fafc; }
+.contract-box .cb-line { margin-bottom:5px; }
+.contract-box .cb-line b { color:#1e293b; }
+
+/* Dev intro */
+.stack-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size:8.8pt; }
+.stack-row b { color:#1e293b; }
+.stack-row { color:#64748b; }
+
+/* Portfolio (placeholder) */
+.pf-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.pf-card { border:1px solid #e2e8f0; border-radius:8px; overflow:hidden; }
+.pf-thumb { height:70mm; background:linear-gradient(135deg,#e2e8f0,#f1f5f9);
+  display:flex; align-items:center; justify-content:center; color:#94a3b8; font-size:8.5pt; letter-spacing:1px; }
+.pf-cap { padding:8px 10px; font-size:8.5pt; color:#475569; }
+
+/* Footer */
+.doc-footer { position:absolute; bottom:12mm; left:18mm; right:18mm; text-align:center;
+  font-size:7.8pt; color:#94a3b8; border-top:1px solid #e2e8f0; padding-top:8px; }
+
+.sample-badge { position:absolute; top:16mm; right:18mm; font-size:7.5pt; color:#cbd5e1;
+  border:1px solid #e2e8f0; border-radius:20px; padding:3px 10px; letter-spacing:1px; }
+</style>
+</head>
+<body>
+
+<div class="page">
+<div class="sample-badge">SAMPLE · 예시 문서</div>
+<div class="doc-header">
+  <div>
+    <div class="brand">[상호명]</div>
+    <div class="brand-sub">대표 [대표자명] · 사업자등록번호 [000-00-00000] · [연락처]</div>
+  </div>
+  <div>
+    <div class="doc-title">견적서</div>
+    <div class="doc-subtitle">QUOTATION (직접계약)</div>
+  </div>
+</div>
+
+<table class="meta-table">
+  <tr><th>프로젝트명</th><td>ABC커머스 자사몰 구축 Phase 1 (예시)</td><th>견적번호</th><td>SAMPLE-DIRECT-001</td></tr>
+  <tr><th>공급받는자</th><td>주식회사 ABC커머스 (예시)</td><th>작성일</th><td>2026년 09월 28일</td></tr>
+  <tr><th>유효기간</th><td>작성일로부터 30일</td><th>결제 채널</th><td>공급자·수요자 간 직접 계약 (채널 확정 후 반영)</td></tr>
+</table>
+
+<div class="section">
+  <div class="section-head"><span class="sh-num">01</span> 작업 범위</div>
+  <div class="scope-grid">
+    <div class="scope-card"><div class="sc-no">SCOPE 01</div><div class="sc-title">상품·주문 관리</div><div class="sc-desc">상품 등록, 옵션·재고 관리, 주문 처리 플로우</div></div>
+    <div class="scope-card"><div class="sc-no">SCOPE 02</div><div class="sc-title">결제 연동</div><div class="sc-desc">PG 연동, 카드·간편결제 지원</div></div>
+    <div class="scope-card"><div class="sc-no">SCOPE 03</div><div class="sc-title">회원·쿠폰</div><div class="sc-desc">회원 등급, 쿠폰·적립금 시스템</div></div>
+    <div class="scope-card"><div class="sc-no">SCOPE 04</div><div class="sc-title">관리자 백오피스</div><div class="sc-desc">주문·정산·상품 통합 관리 화면</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-head"><span class="sh-num">02</span> 최종 금액 내역</div>
+  <table class="vat-table">
+    <tr><th>공급가액</th><td class="num">36,000,000원</td></tr>
+    <tr><th>부가세 (10%)</th><td class="num">3,600,000원</td></tr>
+    <tr class="total"><th>합계</th><td class="num">39,600,000원</td></tr>
+  </table>
+  <div class="ps-note">세금계산서는 잔금 결제 시점 기준으로 발행합니다.</div>
+</div>
+
+<div class="section">
+  <div class="section-head"><span class="sh-num">03</span> 진행 일정</div>
+  <table class="timeline-table">
+    <tr><th>주차</th><th>내용</th></tr>
+    <tr><td class="week">1~2주차</td><td>요구사항 확정, 화면 설계, PG 연동 스펙 협의</td></tr>
+    <tr><td class="week">3~8주차</td><td>상품·주문·결제·회원 기능 개발</td></tr>
+    <tr><td class="week">9주차</td><td>백오피스 개발, 통합 테스트</td></tr>
+    <tr><td class="week">10주차</td><td>QA, 배포, 납품</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-head"><span class="sh-num">04</span> 결제 조건</div>
+  <div class="payment-split">
+    <div class="ps-card"><div class="ps-pct">선금 50%</div><div class="ps-label">계약 체결 시</div><div class="ps-amt">19,800,000원</div></div>
+    <div class="ps-card"><div class="ps-pct">중도금 30%</div><div class="ps-label">중간 마일스톤 확인 시</div><div class="ps-amt">11,880,000원</div></div>
+    <div class="ps-card"><div class="ps-pct">잔금 20%</div><div class="ps-label">납품 확인 후</div><div class="ps-amt">7,920,000원</div></div>
+  </div>
+  <div class="ps-note">본 견적은 직접계약(외부거래) 건으로, 크몽 안전결제 정책과 무관하게 5:3:2 분할 구조를 적용한 예시입니다.</div>
+</div>
+
+<div class="section">
+  <div class="section-head"><span class="sh-num">05</span> 계약 범위 및 제한 사항</div>
+  <div class="contract-box">
+    <div class="cb-line"><b>A. 범위</b> 상기 작업 범위(01) 내 기능 개발 및 1회 배포까지 포함합니다.</div>
+    <div class="cb-line"><b>B. 제외</b> 서버·도메인·PG 가맹 비용은 귀사 부담입니다.</div>
+    <div class="cb-line"><b>C. 변경</b> 범위 외 추가 요청은 별도 견적 후 진행합니다.</div>
+    <div class="cb-line"><b>D. 하자보수</b> 납품 후 2주간 무상 하자보수를 제공합니다.</div>
+    <div class="cb-line"><b>E. 지급지연</b> 마일스톤 지급 지연 시 해당 단계 착수를 보류할 수 있습니다.</div>
+    <div class="cb-line"><b>F. 소유권</b> 소스코드·데이터베이스 소유권은 잔금 결제 완료 시 이전됩니다.</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-head"><span class="sh-num">06</span> 공급자 서명</div>
+  <div class="contract-box">
+    <div class="cb-line">상호: [상호명] &nbsp;&nbsp; 대표: [대표자명] (인) &nbsp;&nbsp; 일자: 2026년 09월 28일</div>
+  </div>
+</div>
+
+<div class="doc-footer">본 견적서는 예시(SAMPLE) 템플릿이며, [ ] 표시 항목은 실제 발송 전 공급자 정보로 교체합니다</div>
+</div>
+
+</body>
+</html>
