@@ -451,7 +451,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     },
     supplier: {
       name: 'Studio KJM',
-      ceo: '김지민',
+      ceo: '홍길동',
       bizNo: '123-45-67890',
       phone: '010-1234-5678',
       email: 'contact@studiokjm.com'

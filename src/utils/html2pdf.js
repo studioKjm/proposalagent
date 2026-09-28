@@ -34,10 +34,10 @@ export async function convertToPDF(htmlPath, outputPath = null, options = {}) {
   const pdfOptions = {
     format: options.format || 'A4',
     margin: options.margin || {
-      top: '15mm',
-      right: '15mm',
-      bottom: '15mm',
-      left: '15mm'
+      top: '0',
+      right: '0',
+      bottom: '0',
+      left: '0'
     },
     printBackground: options.printBackground !== false,
     preferCSSPageSize: options.preferCSSPageSize || false,
@@ -120,10 +120,10 @@ export async function convertHTMLStringToPDF(htmlContent, outputPath, options = 
   const pdfOptions = {
     format: options.format || 'A4',
     margin: options.margin || {
-      top: '15mm',
-      right: '15mm',
-      bottom: '15mm',
-      left: '15mm'
+      top: '0',
+      right: '0',
+      bottom: '0',
+      left: '0'
     },
     printBackground: options.printBackground !== false,
     scale: options.scale || 1.0

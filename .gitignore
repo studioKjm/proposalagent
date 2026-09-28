@@ -6,13 +6,31 @@ output/
 
 # Client-specific generators (sensitive: client names, pricing, project specifics)
 generate-*.js
+generate-*.mjs
+convert-*.js
+convert-*.mjs
+*-pdf-build.js
+*-pdf-build.mjs
 
 # Client-specific docs (contracts, analyses, checklists, defense guides)
 *-contract-*.md
 artwork-outsourcing-*.md
 kmong-*-analysis.md
 크몽_*.md
+크몽_*.html
+크몽_*.pdf
+크몽_*.hwpx
+직접견적_*
+사전문의*
 20260415_견적서_면책조항_방어가이드.md
+
+# Real, client-facing quote/proposal documents (any format, anywhere in the repo)
+# — templated/anonymized samples belong in examples/, never here
+*_견적서.*
+*_사전문의*.*
+
+# Unrelated personal/side projects that occasionally get created in this working dir
+ebook_*/
 
 # Personal assets (signature, seal images)
 assets/
